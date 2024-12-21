@@ -7,18 +7,10 @@
     <div>Status</div>
   </div>
   <div class="task-container">
-    <div *ngFor="let todo of todoItems(); trackBy: trackById" class="task-item">
-      <div>{{ todo.id }}</div>
-      <div>{{ todo.title }}</div>
-      <div>{{ todo.userId }}</div>
-      <div>
-        <input
-          type="checkbox"
-          [(ngModel)]="todo.completed"
-          (change)="updateTodoStatus(todo.id,$event)"
-          [checked]="todo.completed"
-        />
-      </div>
-    </div>
+    <app-todo-item
+      *ngFor="let todo of todoItems(); trackBy: trackById"
+      [todo]="todo"
+      (statusChange)="updateTodoStatus($event.id, $event.completed)"
+    ></app-todo-item>
   </div>
 </div>

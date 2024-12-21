@@ -1,4 +1,12 @@
-<div class="todo-tem">
-  <h1>todo-item works!</h1>
-
+<div class="task-item">
+  <div>{{ todo.id }}</div>
+  <div>{{ todo.title }}</div>
+  <div>{{ todo.userId }}</div>
+  <div>
+    <input
+      type="checkbox"
+      [checked]="todo.completed"
+      (change)="onCheckboxChange($event)"
+    />
+  </div>
 </div>

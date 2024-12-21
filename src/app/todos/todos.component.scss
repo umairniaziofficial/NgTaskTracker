@@ -10,61 +10,38 @@ h4 {
   color: #f5f5f5;
 }
 
-.task-item
-{
-  font-size: 0.5em;
-}
-
-.todo-header
-{
-  margin-bottom: 6px;
-}
-.todo-header,
-.task-item {
+.todo-header {
   display: flex;
   align-items: center;
   padding: 10px;
   border-radius: 8px;
-}
-
-.todo-header {
   background-color: rgb(57, 60, 63);
   font-size: 0.5em;
   font-weight: bold;
+  margin-bottom: 6px;
 }
 
-.task-item {
-  background-color: rgb(46, 46, 46);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.todo-header div,
-.task-item div {
+.todo-header div {
   text-align: center;
   padding: 5px 10px;
 }
 
-.todo-header div:nth-child(1),
-.task-item div:nth-child(1) {
+.todo-header div:nth-child(1) {
   width: 10%;
 }
 
-.todo-header div:nth-child(2),
-.task-item div:nth-child(2) {
+.todo-header div:nth-child(2) {
   width: 50%;
 }
 
-.todo-header div:nth-child(3),
-.task-item div:nth-child(3) {
+.todo-header div:nth-child(3) {
   width: 20%;
 }
 
-.todo-header div:nth-child(4),
-.task-item div:nth-child(4) {
+.todo-header div:nth-child(4) {
   width: 20%;
 }
 
-/* Add spacing between items */
 .task-container {
   display: flex;
   flex-direction: column;

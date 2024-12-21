@@ -1,3 +1,30 @@
-h1{
-  font-size: 18px;
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgb(46, 46, 46);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.5em;
+}
+
+.task-item div {
+  text-align: center;
+  padding: 5px 10px;
+}
+
+.task-item div:nth-child(1) {
+  width: 10%;
+}
+
+.task-item div:nth-child(2) {
+  width: 50%;
+}
+
+.task-item div:nth-child(3) {
+  width: 20%;
+}
+
+.task-item div:nth-child(4) {
+  width: 20%;
 }
