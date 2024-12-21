@@ -1,0 +1,17 @@
+h1 {
+  font-size: 26px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input
+{
+  width: 20%;
+  padding: 5px 5px;
+  outline: none;
+  font-size: 17px;
+}

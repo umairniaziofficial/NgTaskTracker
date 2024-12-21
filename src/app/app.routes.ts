@@ -1,0 +1,14 @@
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: '',
+    data: {title: 'Home'},
+    loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent),
+  },
+  {
+    path:"todos",
+    data:{title: 'Todos'},
+    loadComponent: ()=> import("./todos/todos.component").then(m=> m.TodosComponent)
+  }
+];

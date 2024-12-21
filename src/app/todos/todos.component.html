@@ -1,0 +1,23 @@
+<div class="todos-container">
+  <h4>Todo List</h4>
+  <div class="todo-header">
+    <div>ID</div>
+    <div>Title</div>
+    <div>Created</div>
+    <div>Status</div>
+  </div>
+  <div class="task-container">
+    <div *ngFor="let todo of todoItems(); trackBy: trackById" class="task-item">
+      <div>{{ todo.id }}</div>
+      <div>{{ todo.title }}</div>
+      <div>{{ todo.userId }}</div>
+      <div>
+        <input
+          type="checkbox"
+          [(ngModel)]="todo.completed"
+          (ngModelChange)="updateTodoStatus(todo.id, $event)"
+        />
+      </div>
+    </div>
+  </div>
+</div>
