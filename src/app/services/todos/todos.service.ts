@@ -5,19 +5,42 @@ import { Todo } from '../../models/todo.type';
   providedIn: 'root',
 })
 export class TodosService {
-  todoItems = <Array<Todo>>[
-    {
-      userId: 1,
-      id: 0,
-      completed: false,
-      title: ' Learn Angular',
-    },
-    {
-      userId: 1,
-      id: 1,
-      completed: false,
-      title: 'Create content',
-    },
-  ];
-  constructor() {}
+  private StorageKey = 'TODO_LOCAL';
+  todoItems: Array<Todo> = [];
+
+  constructor() {
+    this.todoItems = this.loadFromLocalStorage() || [
+      {
+        id: 1,
+        userId: 0,
+        title: 'Learn angular',
+        completed: false,
+      },
+      {
+        id: 2,
+        userId: 0,
+        title: 'Writing Code',
+        completed: true,
+      },
+    ];
+  }
+
+  saveToLocalStorage(): void {
+    localStorage.setItem(this.StorageKey, JSON.stringify(this.todoItems));
+  }
+
+  loadFromLocalStorage() : Array<Todo> | null {
+    const data = localStorage.getItem(this.StorageKey);
+    return data ? JSON.parse(data) : null;
+  }
+
+  updateTodo(id : number, complete :boolean) : void
+  {
+     const todo =  this.todoItems.find((item)=> item.id == id);
+     if(todo)
+     {
+      todo.completed = complete;
+      this.saveToLocalStorage();
+     }
+  }
 }

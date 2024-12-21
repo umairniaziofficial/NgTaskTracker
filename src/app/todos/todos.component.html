@@ -15,7 +15,8 @@
         <input
           type="checkbox"
           [(ngModel)]="todo.completed"
-          (ngModelChange)="updateTodoStatus(todo.id, $event)"
+          (change)="updateTodoStatus(todo.id,$event)"
+          [checked]="todo.completed"
         />
       </div>
     </div>
