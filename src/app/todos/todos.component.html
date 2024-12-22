@@ -1,16 +1,41 @@
 <div class="todos-container">
   <h4>Todo List</h4>
+
+  <!-- Add Todo Form -->
+  <div class="add-todo-container">
+    <input
+      type="text"
+      class="inputField"
+      placeholder="Enter new todo title"
+      [ngModel]="newTodoTitle()"
+      (ngModelChange)="newTodoTitle.set($event)"
+      (keyup.enter)="addTodo()"
+    >
+    <button class="add-button" (click)="addTodo()">Add Todo</button>
+  </div>
+
+  <!-- Search Input -->
+  <input
+    type="search"
+    class="inputField"
+    placeholder="Enter the Search Value"
+    [ngModel]="searchTerm()"
+    (ngModelChange)="searchTerm.set($event)"
+  >
+
   <div class="todo-header">
     <div>ID</div>
     <div>Title</div>
-    <div>Created</div>
     <div>Status</div>
+    <div>Actions</div>
   </div>
+
   <div class="task-container">
     <app-todo-item
-      *ngFor="let todo of todoItems(); trackBy: trackById"
+      *ngFor="let todo of todoItems() | filterTodo:searchTerm(); trackBy: trackById"
       [todo]="todo"
       (statusChange)="updateTodoStatus($event.id, $event.completed)"
+      (delete)="deleteTodo($event)"
     ></app-todo-item>
   </div>
 </div>

@@ -1,12 +1,14 @@
-<div class="task-item">
+<div class="task-item" appHighlightCompletedTodo [isCompleted]="todo.completed">
   <div>{{ todo.id }}</div>
-  <div>{{ todo.title }}</div>
-  <div>{{ todo.userId }}</div>
+  <div>{{ todo.title | uppercase }}</div>
   <div>
     <input
       type="checkbox"
       [checked]="todo.completed"
       (change)="onCheckboxChange($event)"
     />
+  </div>
+  <div>
+    <button class="delete-button" (click)="onDelete()">Delete</button>
   </div>
 </div>
